@@ -4,12 +4,16 @@
 
 int main()
 {
-    // Nível Novato - Movimentação das Peças
+    // Nível Aventureiro - Movimentando o Cavalo
 
     // ===== DEFINIÇÃO DAS QUANTIDADES DE MOVIMENTOS =====
     int casasTorre = 5;
     int casasBispo = 5;
     int casasRainha = 8;
+
+    // Movimentos do cavalo
+    const int MOV_BAIXO = 2;
+    const int MOV_ESQUERDA = 1;
 
     // Implementação de Movimentação do Bispo
     // ===== TORRE (FOR) =====
@@ -41,10 +45,29 @@ int main()
 
     int contadorRainha = 0;
 
-    do {
+    do
+    {
         printf("Esquerda\n");
         contadorRainha++;
     } while (contadorRainha < casasRainha);
+
+    // Implementação de Movimentação do Cavalo
+    // ===== CAVALO (LOOPS ANINHADOS) =====
+    printf("\n=== Movimento do Cavalo ===\n");
+
+    for (int i = 0; i < 1; i++)
+    {
+
+        int contador = 0;
+
+        while (contador < MOV_BAIXO)
+        {
+            printf("Baixo\n");
+            contador++;
+        }
+
+        printf("Esquerda\n");
+    }
 
     return 0;
 }
