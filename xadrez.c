@@ -1,73 +1,95 @@
 #include <stdio.h>
 
 // Desafio de Xadrez - MateCheck
+// Nível Mestre - Criando Movimentos Complexos
+
+// MOVIMENTAÇÃO TORRE
+void moverTorre(int casas)
+{
+    if (casas == 0)
+        return;
+
+    printf("Direita\n");
+    moverTorre(casas - 1);
+}
+
+// MOVIMENTAÇÃO RAINHA
+void moverRainha(int casas)
+{
+    if (casas == 0)
+        return;
+
+    printf("Esquerda\n");
+    moverRainha(casas - 1);
+}
+
+// MOVIMENTAÇÃO BISPO
+void moverBispo(int casas)
+{
+    for (int i = 0; i < casas; i++)
+    {
+        for (int j = 0; j < 1; j++)
+        {
+            printf("Cima Direita\n");
+        }
+    }
+}
+
+// MOVIMENTAÇÃO CAVALO
+void moverCavalo()
+{
+    int i, j;
+
+    for (i = 0; i < 3; i++)
+    {
+
+        if (i < 2)
+        {
+            printf("Cima\n");
+        }
+        else
+        {
+            for (j = 0; j < 2; j++)
+            {
+
+                if (j == 0)
+                {
+                    printf("Direita\n");
+                    break;
+                }
+
+                continue;
+            }
+        }
+    }
+}
 
 int main()
 {
-    // Nível Aventureiro - Movimentando o Cavalo
 
-    // ===== DEFINIÇÃO DAS QUANTIDADES DE MOVIMENTOS =====
     int casasTorre = 5;
     int casasBispo = 5;
     int casasRainha = 8;
+    printf("=== TORRE ===\n");
+    moverTorre(casasTorre);
 
-    // Movimentos do cavalo
-    const int MOV_BAIXO = 2;
-    const int MOV_ESQUERDA = 1;
+    printf("\n");
 
-    // Implementação de Movimentação do Bispo
-    // ===== TORRE (FOR) =====
-    // Movimento: 5 casas para a direita
-    printf("=== Movimento da Torre ===\n");
+    // RAINHA
+    printf("=== RAINHA ===\n");
+    moverRainha(casasRainha);
 
-    for (int i = 0; i < casasTorre; i++)
-    {
-        printf("Direita\n");
-    }
+    printf("\n");
 
-    // Implementação de Movimentação da Torre
-    // ===== BISPO (WHILE) =====
-    // Movimento: 5 casas na diagonal (Cima + Direita)
-    printf("\n=== Movimento do Bispo ===\n");
+    // BISPO
+    printf("=== BISPO ===\n");
+    moverBispo(casasBispo);
 
-    int contadorBispo = 0;
+    printf("\n");
 
-    while (contadorBispo < casasBispo)
-    {
-        printf("Cima, Direita\n");
-        contadorBispo++;
-    }
-
-    // Implementação de Movimentação da Rainha
-    // ===== RAINHA (DO-WHILE) =====
-    // Movimento: 8 casas para a esquerda
-    printf("\n=== Movimento da Rainha ===\n");
-
-    int contadorRainha = 0;
-
-    do
-    {
-        printf("Esquerda\n");
-        contadorRainha++;
-    } while (contadorRainha < casasRainha);
-
-    // Implementação de Movimentação do Cavalo
-    // ===== CAVALO (LOOPS ANINHADOS) =====
-    printf("\n=== Movimento do Cavalo ===\n");
-
-    for (int i = 0; i < 1; i++)
-    {
-
-        int contador = 0;
-
-        while (contador < MOV_BAIXO)
-        {
-            printf("Baixo\n");
-            contador++;
-        }
-
-        printf("Esquerda\n");
-    }
+    // CAVALO
+    printf("=== CAVALO ===\n");
+    moverCavalo();
 
     return 0;
 }
